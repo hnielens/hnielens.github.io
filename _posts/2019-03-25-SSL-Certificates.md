@@ -5,14 +5,13 @@ title: TLS Web Server Certificate Manipulation
 
 This tech note might help you if you are experiencing trouble importing an SSL server certifcate to be used e.g. in a web or application server such as apache2 httpd.
 
-This site helped me to get it right: https://www.sslshopper.com/ssl-certificate-tools.html
+This site helped me to get it right: (https://www.sslshopper.com/ssl-certificate-tools.html)
 
 ##  Generate a Certificate Signing Request (CSR)
 
 If you do not have certificate yet you will either generate a self-signed certificate or order one from a Certificate Authority (CA). The latter type of certificates avoids nasty messages saying the certificate is not good. To get such a certificate you will need to generate a CSR (Certificate Signing Request). Note that you will want to also generate the private key for the certificate you are going to request with that CSR.
 
-What is a CSR:
-https://www.sslshopper.com/what-is-a-csr-certificate-signing-request.html
+What is a CSR: (https://www.sslshopper.com/what-is-a-csr-certificate-signing-request.html)
 
 Generate a CSR for and on your server including a private key:
 ```
@@ -22,10 +21,11 @@ openssl req -new -newkey rsa:2048 \
 ```
 You will be asked to provide a password to protect the private key, make sure to write this down. If you want the apache2 web server to come up automatically without having to provide that password you can strip the password from the generated private key with:
 ```
-openssl rsa -in privateKey.pem -out newPrivateKey.pem
+openssl rsa -in privateKey.pem \
+            -out newPrivateKey.pem
 ```
 For all interesting openssl operations see:
-https://www.sslshopper.com/article-most-common-openssl-commands.html
+(https://www.sslshopper.com/article-most-common-openssl-commands.html)
 
 ## Generate, download and inspect the certificate
 
@@ -38,7 +38,7 @@ https://daymvs1.pok.ibm.com/ibmca/certificateProfiles.do?lang=en
 
 I tried to use this certificate in my apache2 docker but the docker run always failed. I needed to make sure the docker logs where persisted on my host (`/usr/local/apache2/logs`), because when a docker stops, all logs that are only in the docker container are lost.
 
-Then I could check the error_log and this clearly indicated that the certificate was unreadable. Something in the style of Expected `---BLABLA CERTIFICATE`. When I searched for the error on the Internet it came back with the advice to read the certificate in non-binary mode using VIM (vi -b file.ext). Normally the output should read something like `---BLABLABLA CERTIFICATE`.
+Then I could check the error_log and this clearly indicated that the certificate was unreadable. Something in the style of Expected `---BLABLA CERTIFICATE`. When I searched for the error on the Internet it came back with the advice to read the certificate in non-binary mode using VIM (vi -b file.ext). Normally the output should read something like ``---BLABLABLA CERTIFICATE`.
 
 So... when I did this with the certificate I downloaded as from the IBM InternalCA CRT I got:
 
