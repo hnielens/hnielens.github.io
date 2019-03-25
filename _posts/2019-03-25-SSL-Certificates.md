@@ -26,7 +26,7 @@ openssl rsa -in privateKey.pem \
 ```
 Note that there might be security implications with removing the password from the private key.
 
-[Common opnenssl operators](https://www.sslshopper.com/article-most-common-openssl-commands.html){:target='_blank'}.
+[Common openssl operators](https://www.sslshopper.com/article-most-common-openssl-commands.html){:target='_blank'}.
 
 ## Generate, download and inspect the certificate
 
