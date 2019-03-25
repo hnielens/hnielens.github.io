@@ -24,11 +24,13 @@ You will be asked to provide a password to protect the private key, make sure to
 openssl rsa -in privateKey.pem \
             -out newPrivateKey.pem
 ```
+Note that there might be security implications with removing the password from the private key.
+
 [Common opnenssl operators](https://www.sslshopper.com/article-most-common-openssl-commands.html){:target='_blank'}.
 
 ## Generate, download and inspect the certificate
 
-With this CSR I generated a certificate at the IBM Internal CA and downloadd it as CRT File.
+With this CSR I generated a certificate at the IBM Internal CA and download it as CRT File.
 
 ![_config.yml]({{ site.baseurl }}/images/M11.png)
 
