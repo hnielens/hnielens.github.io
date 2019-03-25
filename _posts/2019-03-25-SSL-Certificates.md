@@ -37,7 +37,7 @@ https://daymvs1.pok.ibm.com/ibmca/certificateProfiles.do?lang=en).
 
 I tried to use this certificate in my apache2 docker but the docker run always failed. I needed to make sure the docker logs where persisted on my host (`/usr/local/apache2/logs`), because when a docker stops, all logs that are only in the docker container are lost.
 
-Then I could check the error_log and this clearly indicated that the certificate was unreadable. Something in the style of Expected `---BLABLA CERTIFICATE`. When I searched for the error on the Internet it came back with the advice to read the certificate in non-binary mode using VIM (vi -b file.ext). Normally the output should read something like ``---BLABLABLA CERTIFICATE`.
+Then I could check the error_log and this clearly indicated that the certificate was unreadable. Something in the style of Expected `---BLABLA CERTIFICATE`. When I searched for the error on the Internet it came back with the advice to read the certificate in non-binary mode using VIM (vi -b file.ext). Normally the output should read something like ``---BLABLABLA CERTIFICATE``.
 
 So... when I did this with the certificate I downloaded as from the IBM InternalCA CRT I got:
 
