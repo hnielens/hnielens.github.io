@@ -17,7 +17,8 @@ https://www.sslshopper.com/what-is-a-csr-certificate-signing-request.html
 Generate a CSR for and on your server including a private key:
 ```
 openssl req -new -newkey rsa:2048 \
--nodes -out servername.csr -keyout servername.key
+            -nodes -out servername.csr \
+            -keyout servername.key
 ```
 You will be asked to provide a password to protect the private key, make sure to write this down. If you want the apache2 web server to come up automatically without having to provide that password you can strip the password from the generated private key with:
 ```
