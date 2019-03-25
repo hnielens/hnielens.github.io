@@ -32,13 +32,13 @@ Note that there might be security implications with removing the password from t
 
 With this CSR I generated a certificate at the IBM Internal CA and download it as CRT File.
 
-![_config.yml]({{ site.baseurl }}/images/M11.png)
+![](../images/M11.png)
 
 Then I could check the error_log and this clearly indicated that the certificate was unreadable. Something in the style of Expected `---BLABLA CERTIFICATE`. When I searched for the error on the Internet it came back with the advice to read the certificate in non-binary mode using VIM (`vi -b file.ext`). Normally the output should read something like `---BLABLABLA CERTIFICATE`.
 
 So... when I did this with the certificate I downloaded as from the IBM Internal CA CRT I got:
 
-![_config.yml]({{ site.baseurl }}/images/M12.png)
+![](../images/M12.png)
 
 This clearly indicated that the certificate I downloaded as CRT was not in a good format. 
 
@@ -48,20 +48,18 @@ I decided then to download it as PKCS7b format.  To add to the confusion, the d
 
 I then converted the PKCS7b format to standard PEM with [the online converter tool](https://www.sslshopper.com/ssl-converter.html){:target='_blank'} (but this too can probably be done using openssl):
 
-![_config.yml]({{ site.baseurl }}/images/M13.png)
+![](../images/M13.png)
 
 As you can see below that did the trick... `vi -b "cert (1).pem"` now resulted in:
 
-![_config.yml]({{ site.baseurl }}/images/M14.png)
+![](../images/M14.png)
 
 This resulting format I could use in my apache2 server without errors:
 
-![_config.yml]({{ site.baseurl }}/images/M15.png)
+![](../images/M15.png)
 
 ### Note
 
 Firefox has its own certificate store (Chrome and Safari use the OS certificate store), so in my use case one will also have to manually install the IBM Internal CA Intermediate and Root certs manually in that store, because the Internal CA is not published in the wild.
 
-![_config.yml]({{ site.baseurl }}/images/M16.png)
-
-![](../images/480px-Grey_Point.gif)
+![](../images/M16.png).
