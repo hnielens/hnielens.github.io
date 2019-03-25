@@ -32,8 +32,8 @@ With this CSR I generated a certificate at the IBM Internal CA and downloadd it 
 
 ![_config.yml]({{ site.baseurl }}/images/M11.png)
 
-[The IBM Internal Certificate Authority](
-https://daymvs1.pok.ibm.com/ibmca/certificateProfiles.do?lang=en).
+_[The IBM Internal Certificate Authority](
+https://daymvs1.pok.ibm.com/ibmca/certificateProfiles.do?lang=en)._
 
 I tried to use this certificate in my apache2 docker but the docker run always failed. I needed to make sure the docker logs where persisted on my host (`/usr/local/apache2/logs`), because when a docker stops, all logs that are only in the docker container are lost.
 
