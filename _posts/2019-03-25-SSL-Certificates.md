@@ -34,7 +34,7 @@ With this CSR I generated a certificate at the IBM Internal CA and downloadd it 
 
 Then I could check the error_log and this clearly indicated that the certificate was unreadable. Something in the style of Expected `---BLABLA CERTIFICATE`. When I searched for the error on the Internet it came back with the advice to read the certificate in non-binary mode using VIM (`vi -b file.ext`). Normally the output should read something like `---BLABLABLA CERTIFICATE`.
 
-So... when I did this with the certificate I downloaded as from the IBM InternalCA CRT I got:
+So... when I did this with the certificate I downloaded as from the IBM Internal CA CRT I got:
 
 ![_config.yml]({{ site.baseurl }}/images/M12.png)
 
