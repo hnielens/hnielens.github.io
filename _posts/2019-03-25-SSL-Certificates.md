@@ -3,8 +3,6 @@ layout: post
 title: TLS Web Server Certificate Manipulation
 ---
 
-# TLS Web Server Certificate Manipulation
-
 This tech note might help you if you are experiencing trouble importing an SSL server certifcate to be used e.g. in a web or application server such as apache2 httpd.
 
 This site helped me to get it right: https://www.sslshopper.com/ssl-certificate-tools.html
