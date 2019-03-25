@@ -5,13 +5,13 @@ title: TLS Web Server Certificate Manipulation
 
 This tech note might help you if you are experiencing trouble importing an SSL server certifcate to be used e.g. in a web or application server such as apache2 httpd.
 
-_[This site helped me to get it right](https://www.sslshopper.com/ssl-certificate-tools.html)._
+[This site helped me to get it right](https://www.sslshopper.com/ssl-certificate-tools.html).
 
 ##  Generate a Certificate Signing Request (CSR)
 
 If you do not have certificate yet you will either generate a self-signed certificate or order one from a Certificate Authority (CA). The latter type of certificates avoids nasty messages saying the certificate is not good. To get such a certificate you will need to generate a CSR (Certificate Signing Request). Note that you will want to also generate the private key for the certificate you are going to request with that CSR.
 
-_[What is a CSR](https://www.sslshopper.com/what-is-a-csr-certificate-signing-request.html)?_
+[What is a CSR](https://www.sslshopper.com/what-is-a-csr-certificate-signing-request.html)?
 
 Generate a CSR for and on your server including a private key:
 ```
@@ -24,7 +24,7 @@ You will be asked to provide a password to protect the private key, make sure to
 openssl rsa -in privateKey.pem \
             -out newPrivateKey.pem
 ```
-_[Common opnenssl operators](https://www.sslshopper.com/article-most-common-openssl-commands.html)._
+[Common opnenssl operators](https://www.sslshopper.com/article-most-common-openssl-commands.html).
 
 ## Generate, download and inspect the certificate
 
@@ -33,11 +33,11 @@ With this CSR I generated a certificate at the IBM Internal CA and downloadd it 
 ![_config.yml]({{ site.baseurl }}/images/M11.png)
 
 _[The IBM Internal Certificate Authority](
-https://daymvs1.pok.ibm.com/ibmca/certificateProfiles.do?lang=en)._
+https://daymvs1.pok.ibm.com/ibmca/certificateProfiles.do?lang=en){:target='_blank'}_.
 
 I tried to use this certificate in my apache2 docker but the docker run always failed. I needed to make sure the docker logs where persisted on my host (`/usr/local/apache2/logs`), because when a docker stops, all logs that are only in the docker container are lost.
 
-Then I could check the error_log and this clearly indicated that the certificate was unreadable. Something in the style of Expected `---BLABLA CERTIFICATE`. When I searched for the error on the Internet it came back with the advice to read the certificate in non-binary mode using VIM (`vi -b file.ext`). Normally the output should read something like `---BLABLABLA CERTIFICATE`.
+Then I could check the error_log and this clearly indicated that the certificate was unreadable. Something in the style of Expected `---BLABLA CERTIFICATE`. When I searched for the error on the Internet it came back with the advice to read the certificate in non-binary mode using VIM (`vi -b file.ext`). Normally the output should read something like `---BLABLABLA CERTIFICATE.
 
 So... when I did this with the certificate I downloaded as from the IBM InternalCA CRT I got:
 
@@ -63,6 +63,6 @@ This resulting format I could use in my apache2 server without errors:
 
 ### Note
 
-Firefox has its own certificate store (chrome and safari use the OS certificate store), so in my use case one will also  have to manually install the IBM Internal CA Intermediate and Root certs manually in that store, because the Internal CA is not published in the wild.
+Firefox has its own certificate store (Chrome and Safari use the OS certificate store), so in my use case one will also have to manually install the IBM Internal CA Intermediate and Root certs manually in that store, because the Internal CA is not published in the wild.
 
 ![_config.yml]({{ site.baseurl }}/images/M16.png)
