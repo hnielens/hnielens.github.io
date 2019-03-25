@@ -62,4 +62,4 @@ This resulting format I could use in my apache2 server without errors:
 
 Firefox has its own certificate store (Chrome and Safari use the OS certificate store), so in my use case one will also have to manually install the IBM Internal CA Intermediate and Root certs manually in that store, because the Internal CA is not published in the wild.
 
-![](../images/M16.png).
+![](../images/M16.png)
