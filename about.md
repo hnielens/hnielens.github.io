@@ -3,7 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-
+<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 I have been working in Information Architecture for the best part of my career. Nevertheless, I try to keep broad view on IT: next to Data & AI I also am interested in all things Cloud and Cybersecurity.
 
 Any opinions, views or comments expressed in this blog are my own and not those of my employer.
