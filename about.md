@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I have been working in Information Architecture for the best part of my career. Nevertheless, I try to keep broad view on IT: next to Data & AI I also am interested in all things Cloud and Cybersecurity.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+Any opinions, views or comments are my own and not those of my employer.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[analytics.architect@techie.com](analytics.architect@techie.com)
