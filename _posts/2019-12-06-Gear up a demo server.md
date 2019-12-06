@@ -18,8 +18,10 @@ This tech note might help you with what steps to take to gear up a CA demo serve
 
 ### Install ibmcloud cli
 - Get and install available updates
-`yum update`
-`yum upgrade`
+```
+yum update
+yum upgrade
+```
 - Get and install the ibmcloud cli
 `curl -fsSL https://clis.cloud.ibm.com/install/linux | sh`
 
